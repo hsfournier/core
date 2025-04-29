@@ -1,0 +1,40 @@
+details:
+    type: district
+    name: District
+    desc: Data for user custom fields (Included as an example)
+    category: District
+    table: gibbonDistrict
+    modes: { update: true, insert: true }
+access:
+    module: User Admin
+    action: Manage District
+primaryKey:
+    gibbonDistrictID
+uniqueKeys:
+    - gibbonDistrictID
+table:
+    gibbonDistrictID:
+        name: "District"
+        desc: "Name of district"
+        args: { filter: district, required: true }
+        relationship: { table: gibbonPerson, key: gibbonPersonID, field: username|email  }
+    address:
+        name: "Address"
+        desc: ""
+        args: { filter: address, required: true }
+    city:
+        name: "City"
+        desc: ""
+        args: { filter: city, readonly: true }
+    province:
+        name: "Province"
+        desc: ""
+        args: { filter: province, readonly: true }
+    postalCode:
+        name: "Postal Code"
+        desc: ""
+        args: { filter: postalcode, custom: true }
+    fields:
+        name: "Custom Fields"
+        desc: ""
+        args: { filter: customfield, serialize: fields, custom: true }
